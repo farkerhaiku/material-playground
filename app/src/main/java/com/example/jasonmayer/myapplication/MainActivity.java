@@ -8,7 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -154,7 +156,11 @@ public class MainActivity extends AppCompatActivity
             actionC.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "category '" + "" + "' clicked", Toast.LENGTH_SHORT).show();
+                    AppCompatDialog dialog = new AlertDialog.Builder(v.getContext())
+                            .setView(R.layout.ask_podium_question)
+                            .create();
+
+                    dialog.show();
                 }
             });
             ((FloatingActionsMenu) rootView.findViewById(R.id.multiple_actions)).addButton(actionC);

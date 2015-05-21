@@ -44,7 +44,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, final int position) {
         final String text = questionList.get(position).toString();
