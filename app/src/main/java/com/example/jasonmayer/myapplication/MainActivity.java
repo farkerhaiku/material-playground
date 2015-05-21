@@ -22,6 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,12 +144,20 @@ public class MainActivity extends AppCompatActivity
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-
-//            mRecyclerView.setHasFixedSize(true);
             mLayoutManager = new LinearLayoutManager(getActivity());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mAdapter = new MyAdapter(getQuestions());
             mRecyclerView.setAdapter(mAdapter);
+
+            FloatingActionButton actionC = new FloatingActionButton(getActivity().getBaseContext());
+            actionC.setTitle("Hide/Show Action above");
+            actionC.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "category '" + "" + "' clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
+            ((FloatingActionsMenu) rootView.findViewById(R.id.multiple_actions)).addButton(actionC);
 
             return rootView;
         }
@@ -154,7 +165,7 @@ public class MainActivity extends AppCompatActivity
             ArrayList<Question> questions = new ArrayList<>();
             for ( int i = 0; i < 4; i++) {
                 Question question = new Question();
-                question.setText("Foo" + i);
+                question.setText("Question Number " + i);
                 questions.add(question);
             }
             return questions;
