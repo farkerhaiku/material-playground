@@ -13,7 +13,7 @@
 
     <Button
         android:layout_width="match_parent"
-        style="@style/PodiumButton"
+        style="@style/Button"
         android:id="@+id/ask_button"
         android:text="Ask Question"
         />

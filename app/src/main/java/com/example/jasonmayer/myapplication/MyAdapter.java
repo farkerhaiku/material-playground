@@ -4,15 +4,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.lang.reflect.WildcardType;
 import java.util.List;
 
 
@@ -52,7 +49,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 AppCompatDialog dialog = new AlertDialog.Builder(v.getContext())
-                        .setView(R.layout.podium_question)
+                        .setView(R.layout.view_question)
                         .create();
 
                 dialog.show();
